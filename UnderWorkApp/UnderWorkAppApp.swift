@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct UnderWorkAppApp: App {
     let persistenceController = PersistenceController.shared
+    let userSetting = UserSettings.shared
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(userSetting)
         }
     }
 }
